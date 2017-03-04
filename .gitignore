@@ -3,3 +3,10 @@ TestCircuitBreaker/TestCircuitBreaker/bin/
 TestEntityFramework/TestEntityFramework/bin/
 TestEntityFramework/TestEntityFramework/obj/
 TestEntityFramework/packages/
+TestMoq/UnitTestProjectMailer/obj/
+TestMoq/UnitTestProjectMailer/bin/
+TestMoq/UnitTestLibraryMailer/obj/
+TestMoq/Mailer/obj/
+TestMoq/MailerIntegrationTest/obj/
+TestMoq/packages/
+TestMoq/MailerIntegrationTest/bin/
