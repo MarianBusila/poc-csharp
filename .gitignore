@@ -13,3 +13,6 @@ TestMoq/MailerIntegrationTest/bin/
 TestNancyTopshelf/packages/
 TestNancyTopshelf/TestNancyTopshelf/obj/
 TestNancyTopshelf/TestNancyTopshelf/bin/
+TestNewtonsoftJson/packages/
+TestNewtonsoftJson/TestNewtonsoftJson/obj/
+TestNewtonsoftJson/TestNewtonsoftJson/bin/
