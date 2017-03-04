@@ -10,3 +10,6 @@ TestMoq/Mailer/obj/
 TestMoq/MailerIntegrationTest/obj/
 TestMoq/packages/
 TestMoq/MailerIntegrationTest/bin/
+TestNancyTopshelf/packages/
+TestNancyTopshelf/TestNancyTopshelf/obj/
+TestNancyTopshelf/TestNancyTopshelf/bin/
