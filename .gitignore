@@ -19,3 +19,8 @@ TestNewtonsoftJson/TestNewtonsoftJson/bin/
 TestNinject/packages/
 TestNinject/TestNinject/obj/
 TestNinject/TestNinject/bin/
+*.suo
+TestMoq/Mailer/bin/
+TestSerilog/packages/
+TestSerilog/TestSerilog/bin/
+TestSerilog/TestSerilog/obj/
