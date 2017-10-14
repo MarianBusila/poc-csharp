@@ -24,3 +24,8 @@ TestMoq/Mailer/bin/
 TestSerilog/packages/
 TestSerilog/TestSerilog/bin/
 TestSerilog/TestSerilog/obj/
+TestPolly/packages/
+TestPolly/PollyTestApp/bin/
+TestPolly/PollyTestApp/obj/
+TestPolly/TestPolly/bin/
+TestPolly/TestPolly/obj/
