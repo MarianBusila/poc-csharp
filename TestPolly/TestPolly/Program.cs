@@ -10,6 +10,10 @@ namespace TestPolly
     {
         static void Main(string[] args)
         {
+            // Synchronous samples
+
+            Samples.Demo00_NoPolicy.Execute();
+
         }
     }
 }
