@@ -12,7 +12,8 @@ namespace TestPolly
         {
             // Synchronous samples
 
-            Samples.Demo00_NoPolicy.Execute();
+            // Samples.Demo00_NoPolicy.Execute();
+            Samples.Demo01_RetryNTimes.Execute();
 
         }
     }
