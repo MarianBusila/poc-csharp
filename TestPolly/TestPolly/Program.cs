@@ -14,7 +14,9 @@ namespace TestPolly
 
             // Samples.Demo00_NoPolicy.Execute();
             // Samples.Demo01_RetryNTimes.Execute();
-            Samples.Demo02_WaitAndRetryNTimes.Execute();
+            // Samples.Demo02_WaitAndRetryNTimes.Execute();
+            // Samples.Demo03_WaitAndRetryNTimes_WithEnoughRetries.Execute();
+            Samples.Demo04_WaitAndRetryForever.Execute();
 
         }
     }
