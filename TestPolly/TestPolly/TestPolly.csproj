@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConsoleHelper.cs" />
+    <Compile Include="Samples\Demo08_Wrap_Fallback_WaitAndRetry_CircuitBreaker.cs" />
     <Compile Include="Samples\Demo07_WaitAndRetryNestingCircuitBreakerUsingPolicyWrap.cs" />
     <Compile Include="Samples\Demo06_WaitAndRetryNestingCircuitBreaker.cs" />
     <Compile Include="Samples\Demo05_WaitAndRetryNTimes_WithExponentialBackoff.cs" />
