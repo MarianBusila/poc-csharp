@@ -9,13 +9,14 @@ namespace TestPolly.Samples
     using System.Diagnostics;
 
     using Polly.CircuitBreaker;
+    using Polly.Wrap;
 
     /// <summary>
     /// Wait and Retry N Times.  Demonstrates behaviour of 'faulting server' we are testing against.
     /// Loops through a series of Http requests, keeping track of each requested
     /// item and reporting server failures when encountering exceptions.
     /// </summary>
-    public static class Demo06_WaitAndRetryNestingCircuitBreaker
+    public static class Demo07_WaitAndRetryNestingCircuitBreakerUsingPolicyWrap
     {
         public static void Execute()
         {
@@ -55,6 +56,7 @@ namespace TestPolly.Samples
                 onHalfOpen: () => ConsoleHelper.WriteLineInColor("[" + DateTime.Now.ToString("hh:mm:ss.fff") + "]" + ".Breaker logging: Half-open: Next call is a trial!", ConsoleColor.Magenta)
                 );
 
+            PolicyWrap policyWrap = Policy.Wrap(waitAndRetryPolicy, circuitBreakerPolicy);
 
             int i = 0;
             // Do the following until a key is pressed
@@ -66,24 +68,18 @@ namespace TestPolly.Samples
 
                 try
                 {
-                    // retry according to policy: try 3 times 
-                    waitAndRetryPolicy.Execute(() =>
+                    // Retry the following call according to the policy wrap
+                    string msg = policyWrap.Execute<String>(() =>
                         {
-                            // This code is executed within the waitAndRetryPolicy
-                            string msg = circuitBreakerPolicy.Execute<String>(() =>
-                                {
-                                    // Make a request and get a response
-                                    return client.DownloadString(Configuration.WEB_API_ROOT + "/api/values/" + i);
-                                });
-
-                            watch.Stop();
-
-
-                            // Display the response message on the console
-                            ConsoleHelper.WriteLineInColor("[" + DateTime.Now.ToString("hh:mm:ss.fff") + "]" + "Response : " + msg, ConsoleColor.Green);
-                            ConsoleHelper.WriteLineInColor("[" + DateTime.Now.ToString("hh:mm:ss.fff") + "]" + " (after " + watch.ElapsedMilliseconds + "ms)", ConsoleColor.Green);
-                            eventualSuccesses++;
+                            return client.DownloadString(Configuration.WEB_API_ROOT + "/api/values/" + i);                             
                         });
+                    watch.Stop();
+
+
+                    // Display the response message on the console
+                    ConsoleHelper.WriteLineInColor("[" + DateTime.Now.ToString("hh:mm:ss.fff") + "]" + "Response : " + msg, ConsoleColor.Green);
+                    ConsoleHelper.WriteLineInColor("[" + DateTime.Now.ToString("hh:mm:ss.fff") + "]" + " (after " + watch.ElapsedMilliseconds + "ms)", ConsoleColor.Green);
+                    eventualSuccesses++;
                 }
                 catch (BrokenCircuitException b)
                 {

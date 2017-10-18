@@ -18,7 +18,8 @@ namespace TestPolly
             // Samples.Demo03_WaitAndRetryNTimes_WithEnoughRetries.Execute();
             // Samples.Demo04_WaitAndRetryForever.Execute();
             // Samples.Demo05_WaitAndRetryNTimes_WithExponentialBackoff.Execute();
-            Samples.Demo06_WaitAndRetryNestingCircuitBreaker.Execute();
+            // Samples.Demo06_WaitAndRetryNestingCircuitBreaker.Execute();
+            Samples.Demo07_WaitAndRetryNestingCircuitBreakerUsingPolicyWrap.Execute();
 
         }
     }
