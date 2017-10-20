@@ -29,3 +29,5 @@ TestPolly/PollyTestApp/bin/
 TestPolly/PollyTestApp/obj/
 TestPolly/TestPolly/bin/
 TestPolly/TestPolly/obj/
+TestAsyncAwait/TestAsyncAwait/bin/
+TestAsyncAwait/TestAsyncAwait/obj/
