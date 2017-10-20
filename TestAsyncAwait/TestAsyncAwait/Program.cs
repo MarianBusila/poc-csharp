@@ -22,6 +22,7 @@ namespace TestAsyncAwait
     {
         public async Task DoStuff()
         {
+            // this runs in parallel with main thread
             await Task.Run(() =>
                 { LongRunningOperation(); });
         }
