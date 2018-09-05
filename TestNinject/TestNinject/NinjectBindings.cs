@@ -14,6 +14,7 @@ namespace TestNinject
         {
             Bind<IMailSender>().To<MailSender>();
             Bind<ILogging>().To<ConsoleLogging>();
+            this.Bind<IEnvelopeBuilder>().To<EnvelopeBuilder>().WithConstructorArgument("color", "Pink");
         }
     }
 }
