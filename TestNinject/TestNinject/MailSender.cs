@@ -6,18 +6,30 @@ using System.Threading.Tasks;
 
 namespace TestNinject
 {
-    class MailSender : IMailSender
+    public class MailSender : IMailSender
     {
         private readonly ILogging logger;
 
-        public MailSender(ILogging logger)
+        private readonly IEnvelopeBuilder enveloperBuilder;
+
+        public MailSender(ILogging logger, IEnvelopeBuilder enveloperBuilder)
         {
             this.logger = logger;
+            this.enveloperBuilder = enveloperBuilder;
         }
         public void Send(string toAddress, string subject)
-        {            
-            string message = string.Format("Sending mail to {0} with subject {1}", toAddress, subject);
-            logger.Log(message);
+        {
+            try
+            {
+                this.enveloperBuilder.CreateEnvelope();
+                string message = string.Format("Sending mail to {0} with subject {1}", toAddress, subject);
+                logger.Log(message);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }           
         }
     }
 }

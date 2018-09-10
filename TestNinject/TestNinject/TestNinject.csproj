@@ -49,11 +49,13 @@
   <ItemGroup>
     <Compile Include="ConsoleLogging.cs" />
     <Compile Include="FormHandler.cs" />
+    <Compile Include="IEnvelopeBuilder.cs" />
     <Compile Include="ILogging.cs" />
     <Compile Include="MailSender.cs" />
     <Compile Include="IMailSender.cs" />
     <Compile Include="MockMailSender.cs" />
     <Compile Include="NinjectBindings.cs" />
+    <Compile Include="EnvelopeBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

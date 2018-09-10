@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestNinject
 {
-    interface ILogging
+    public interface ILogging
     {
         void Log(string message);
     }

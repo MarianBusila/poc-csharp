@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27E96FCC-350B-4380-9FB1-0FE6E49FDCBC}</ProjectGuid>
+    <ProjectGuid>{6438C14E-032E-4B50-9E0A-3A2A5C56CFE6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestPolly</RootNamespace>
-    <AssemblyName>TestPolly</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Publisher</RootNamespace>
+    <AssemblyName>Publisher</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Polly, Version=5.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Polly.5.3.1\lib\net45\Polly.dll</HintPath>
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -47,19 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Samples\Demo08_Wrap_Fallback_WaitAndRetry_CircuitBreaker.cs" />
-    <Compile Include="Samples\Demo07_WaitAndRetryNestingCircuitBreakerUsingPolicyWrap.cs" />
-    <Compile Include="Samples\Demo06_WaitAndRetryNestingCircuitBreaker.cs" />
-    <Compile Include="Samples\Demo05_WaitAndRetryNTimes_WithExponentialBackoff.cs" />
-    <Compile Include="Samples\Demo04_WaitAndRetryForever.cs" />
-    <Compile Include="Samples\Demo03_WaitAndRetryNTimes_WithEnoughRetries.cs" />
-    <Compile Include="Samples\Demo02_WaitAndRetryNTimes.cs" />
-    <Compile Include="Samples\Demo01_RetryNTimes.cs" />
-    <Compile Include="Samples\Demo00_NoPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

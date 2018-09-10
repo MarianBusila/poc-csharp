@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{27E96FCC-350B-4380-9FB1-0FE6E49FDCBC}</ProjectGuid>
+    <ProjectGuid>{A85583C3-492D-475E-9F32-30DE8074121F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestPolly</RootNamespace>
-    <AssemblyName>TestPolly</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>TestAsyncAwait</RootNamespace>
+    <AssemblyName>TestAsyncAwait</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
@@ -33,10 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Polly, Version=5.3.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Polly.5.3.1\lib\net45\Polly.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,23 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConsoleHelper.cs" />
-    <Compile Include="Samples\Demo08_Wrap_Fallback_WaitAndRetry_CircuitBreaker.cs" />
-    <Compile Include="Samples\Demo07_WaitAndRetryNestingCircuitBreakerUsingPolicyWrap.cs" />
-    <Compile Include="Samples\Demo06_WaitAndRetryNestingCircuitBreaker.cs" />
-    <Compile Include="Samples\Demo05_WaitAndRetryNTimes_WithExponentialBackoff.cs" />
-    <Compile Include="Samples\Demo04_WaitAndRetryForever.cs" />
-    <Compile Include="Samples\Demo03_WaitAndRetryNTimes_WithEnoughRetries.cs" />
-    <Compile Include="Samples\Demo02_WaitAndRetryNTimes.cs" />
-    <Compile Include="Samples\Demo01_RetryNTimes.cs" />
-    <Compile Include="Samples\Demo00_NoPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
