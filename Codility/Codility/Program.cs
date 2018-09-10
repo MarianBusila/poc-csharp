@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Codility
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+            int value = BinaryGap.Solution(20);
+            Console.WriteLine("BinaryGap: " + value);
+            */
+
+            /*
+            int[] array = new int[9] { 2, 3, 5, 3, 5, 2, 7, 4, 4 };
+            int value = OddOccurrencesInArray.Solution(array);
+            Console.WriteLine("OddOccurrencesInArray: " + value);
+            */
+
+            /*
+            int[] array = new int[] { 1, 2, 3, 4, 5 };
+            int[] rotated = CyclicRotation.Solution(array, 6);
+            Console.WriteLine("CyclicRotation: " + string.Join(",", rotated));
+            */
+
+            /*
+            int[] array = new int[] { 1, 2, 3, 5 };
+            int value = PermMissingElem.Solution(array);
+            Console.WriteLine("PermMissingElem: " + value);
+            */
+
+            /*
+            int n = 1234;
+            int value = Task1.Solution(n);
+            Console.WriteLine("Task1: " + value);
+            */
+
+            /*
+            string s = "";
+            string result = Task2.Solution(s);
+            Console.WriteLine("Task2: " + result);
+            */
+
+            int result = Task3.Solution(955);
+            Console.WriteLine("Task3: " + result);
+
+
+        }
+
+        
+    }
+}
