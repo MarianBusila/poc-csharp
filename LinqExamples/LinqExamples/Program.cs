@@ -22,12 +22,43 @@ namespace LinqExamples
         }
         #endregion
 
+        #region AggregateOperators
+        static void AggregateSumSquareRoots()
+        {
+            IEnumerable<int> numbers = new List<int> { 1, 2, 3 };
+            var result = numbers.Sum(x => x * x);
+            Console.WriteLine("AggregateSumSquareRoots:" + result);
+        }
+
+        static void AggregateCountStringsWithLenghtMoreThanFive()
+        {
+            string[] words = { "cherry", "apple", "blueberry" };
+            var result = words.Count(w => w.Length > 5);
+            Console.WriteLine("AggregateCountStringsWithLenghtMoreThanFive:" + result);
+        }
+
+        static void AggregateMultiplyAllElements()
+        {
+            IEnumerable<int> numbers = new List<int> { 1, 2, 3, 4 };
+            var result = numbers.Aggregate((currentProduct, nextFactor) => currentProduct * nextFactor);
+            Console.WriteLine("AggregateMultiplyAllElements:" + result);
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             Console.WriteLine("Restriction Operators!");
             Console.WriteLine("______________________");
             WhereLessThanFive();
             WhereInStockAndCostMoreThanThree();
+            Console.WriteLine("______________________");
+            Console.WriteLine();
+
+            Console.WriteLine("Aggregate Operators!");
+            Console.WriteLine("______________________");
+            AggregateSumSquareRoots();
+            AggregateCountStringsWithLenghtMoreThanFive();
+            AggregateMultiplyAllElements();
             Console.WriteLine("______________________");
             Console.WriteLine();
         }
