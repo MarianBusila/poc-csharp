@@ -45,6 +45,22 @@ namespace LinqExamples
         }
         #endregion
 
+        #region ProjectionOperators
+        static void ProjectionToUpper()
+        {
+            string[] words = { "cherry", "apple", "blueberry" };
+            var result = string.Join(", ", words.Select(x => x.ToUpper()).ToArray());
+            Console.WriteLine("ProjectionToUpper:" + result);
+        }
+
+        static void ProjectionListAllProductsNamesFromCategoryBeverages()
+        {
+            IEnumerable<Product> products = Product.GetProducts();
+            var result = string.Join(", ", products.Where(x => x.Category == "Beverages").Select(x => x.ProductName).ToArray());
+            Console.WriteLine("ProjectionListAllProductsNamesFromCategoryBeverages:" + result);
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             Console.WriteLine("Restriction Operators!");
@@ -59,6 +75,13 @@ namespace LinqExamples
             AggregateSumSquareRoots();
             AggregateCountStringsWithLenghtMoreThanFive();
             AggregateMultiplyAllElements();
+            Console.WriteLine("______________________");
+            Console.WriteLine();
+
+            Console.WriteLine("Projections Operators!");
+            Console.WriteLine("______________________");
+            ProjectionToUpper();
+            ProjectionListAllProductsNamesFromCategoryBeverages();
             Console.WriteLine("______________________");
             Console.WriteLine();
         }
