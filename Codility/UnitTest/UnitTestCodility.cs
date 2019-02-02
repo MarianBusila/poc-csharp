@@ -87,5 +87,29 @@ namespace UnitTest
             Assert.AreEqual(Task3.Solution(56173), 3);
             Assert.AreEqual(Task3.Solution(30307228), 5);
         }
+
+        [TestMethod]
+        public void TestConsecSum()
+        {
+            Assert.AreEqual(ConsecSum.Solution(5), 2);
+            Assert.AreEqual(ConsecSum.Solution(9), 3);
+            Assert.AreEqual(ConsecSum.Solution(15), 4);
+            Assert.AreEqual(ConsecSum.Solution(36), 3);
+
+            Assert.AreEqual(ConsecSum.Solution2(5), 2);
+            Assert.AreEqual(ConsecSum.Solution2(9), 3);
+            Assert.AreEqual(ConsecSum.Solution2(15), 4);
+            Assert.AreEqual(ConsecSum.Solution2(36), 3);
+        }
+
+        [TestMethod]
+        public void TestDiagonalMatrixSum()
+        {
+            string resultStr = DiagonalMatrixSum.MatrixToString(DiagonalMatrixSum.Solution(new int[,] { { 1, 2, 3 }, { 1, 2, 1 }, { 2, 3, 4 } }));
+            Assert.AreEqual(resultStr, "{1,3,6},{2,6,10},{4,11,19}");
+
+            resultStr = DiagonalMatrixSum.MatrixToString(DiagonalMatrixSum.Solution(new int[,] { { 1, 1, 4, 2 }, { 5, 1, 3, 6 }, { 2, 1, 3, 2 } }));
+            Assert.AreEqual(resultStr, "{1,2,6,8},{6,8,15,23},{8,11,21,31}");
+        }
     }
 }

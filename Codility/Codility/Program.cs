@@ -45,12 +45,24 @@ namespace Codility
             Console.WriteLine("Task2: " + result);
             */
 
+            /*
             int result = Task3.Solution(955);
             Console.WriteLine("Task3: " + result);
+            */
 
+            /*
+            int result = ConsecSum.Solution2(9);
+            Console.WriteLine("ConsecSum 9: " + result);
+            result = ConsecSum.Solution2(15);
+            Console.WriteLine("ConsecSum 15: " + result);
+            result = ConsecSum.Solution2(36);
+            Console.WriteLine("ConsecSum 36: " + result);
+            */
 
+            int[,] result = DiagonalMatrixSum.Solution(new int[,] { {1, 2, 3}, {1, 2, 1}, {2, 3, 4} });                        
+            Console.WriteLine("DiagonalMatrixSum:" + DiagonalMatrixSum.MatrixToString(result));
         }
 
-        
+
     }
 }
