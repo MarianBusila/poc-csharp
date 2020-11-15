@@ -43,6 +43,7 @@ namespace AspNetCore31WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            
 
             app.UseRouting();
 
@@ -62,6 +63,7 @@ namespace AspNetCore31WebApi
                     ResponseWriter = WriteResponse
                 });
             });
+            
         }
 
         private static Task WriteResponse(HttpContext context, HealthReport result)
