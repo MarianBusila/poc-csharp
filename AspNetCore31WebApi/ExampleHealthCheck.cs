@@ -11,14 +11,14 @@ namespace AspNetCore31WebApi
     {
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            var healthCheckResultHealthy = true;
+            var healthCheckResultHealthy = false;
             
             if(healthCheckResultHealthy)
             {
-                return Task.FromResult(HealthCheckResult.Healthy("A healthy result.", new Dictionary<string, object> { { "key", "value" } }));
+                return Task.FromResult(HealthCheckResult.Healthy("A healthy result.", new Dictionary<string, object> { { "key1", "value1" } }));
             }
 
-            return Task.FromResult(HealthCheckResult.Unhealthy("Un unhealthy result.", new Exception("Status check failed because of an exception")));
+            return Task.FromResult(HealthCheckResult.Unhealthy("Un unhealthy result.", new Exception("Status check failed because of an exception"), new Dictionary<string, object> { { "key2", "value2" } }));
         }
     }
 }
