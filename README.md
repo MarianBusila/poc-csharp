@@ -17,4 +17,5 @@
 * TestRabbitMQ - [RabbitMQ](https://github.com/rabbitmq/rabbitmq-dotnet-client) client for RabbitMQ message broker
 * TestSerilog - [Serilog](https://github.com/serilog/serilog) - Simple .NET logging with fully-structured events
 * aspnetcore_docker - sample ASP .NetCore service with Dockerfile
+* neo4j - a sample console app using [Neo4j](https://neo4j.com/) graph database 
 
