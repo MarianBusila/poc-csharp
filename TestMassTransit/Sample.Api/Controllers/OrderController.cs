@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
@@ -27,14 +25,23 @@ namespace Sample.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Guid id, string customerNumber)
         {
-            Response<OrderSubmissionAccepted> response = await _submitOrderRequestClient.GetResponse<OrderSubmissionAccepted>(new 
+            (Task<Response<OrderSubmissionAccepted>> accepted, Task<Response<OrderSubmissionRejected>> rejected) = await _submitOrderRequestClient.GetResponse<OrderSubmissionAccepted, OrderSubmissionRejected>(new 
             {
                 OrderId = id,
                 CustomerNumber = customerNumber,
                 InVar.Timestamp
 
             });
-            return Ok(response.Message);
+            if (accepted.IsCompletedSuccessfully)
+            {
+                Response<OrderSubmissionAccepted> response = await accepted;
+                return Accepted(response.Message);
+            }
+            else
+            {
+                Response<OrderSubmissionRejected> response = await rejected;
+                return BadRequest(response.Message);
+            }
         }
 
     }
