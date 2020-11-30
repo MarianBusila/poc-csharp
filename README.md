@@ -19,4 +19,5 @@
 * aspnetcore_docker - sample ASP .NetCore service with Dockerfile
 * neo4j - a sample console app using [Neo4j](https://neo4j.com/) graph database 
 * EntityFrameworkCoreCosmosDb - a console app using EFCore CosmosDB provider
+* TestMassTransit - [MassTransit](https://masstransit-project.com/) - a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.
 
