@@ -163,6 +163,12 @@ Data models can be optimized for one of four things:
     MATCH (p:Person)-[:REVIEWED {rating: 65}]->(:Movie {title: 'The Da Vinci Code'}) RETURN p.name 
     MATCH  (p:Person)-[:FOLLOWS]->(:Person)-[:FOLLOWS]->(:Person {name:'Jessica Thompson'}) RETURN p // followers of the followers
     ```
+    ```
+    // to clear a database
+    :USE system
+    CREATE OR REPLACE DATABASE neo4j
+    :USE neo4j
+    ```
 
 Cypher style recommendations
 
@@ -499,4 +505,98 @@ RETURN m.released, m.title ORDER BY m.released DESC
 
 // Setting multiple parameters
 :params {actorName: 'Tom Cruise', movieName: 'Top Gun'}
+
+// Clear parameters from the session
+:params {}
+
+// View parameters
+:params
 ```
+### Analyzing queries
+- EXPLAIN provides estimates of the graph engine processing that will occur, but does not execute the Cypher statement.
+
+- PROFILE provides real profiling information for what has occurred in the graph engine during the query and executes the Cypher statement.
+
+```
+// list running queries
+:queries
+```
+
+
+## Importing Data into Neo4j
+
+### Prepare for the import
+
+- Names of entities (node labels).
+- Names of relationships.
+- Names of properties for nodes and relationships.
+- Constraints to be defined.
+- Indexes required.
+- The most important queries
+
+### How to import data
+
+#### Using Cypher’s LOAD CSV
+ - Create new database
+ ```
+ CREATE DATABASE Movies
+ ```
+ - Create constraints
+ ```
+CREATE CONSTRAINT UniqueMovieIdConstraint ON (m:Movie) ASSERT m.id IS UNIQUE;
+CREATE CONSTRAINT UniquePersonIdConstraint ON (p:Person) ASSERT p.id IS UNIQUE
+```
+ - Import nodes
+ ```
+ :auto USING PERIODIC COMMIT 500
+LOAD CSV WITH HEADERS FROM
+  'https://data.neo4j.com/v4.0-intro-neo4j/movies1.csv' as row
+MERGE (m:Movie {id:toInteger(row.movieId)})
+    ON CREATE SET
+          m.title = row.title,
+          m.avgVote = toFloat(row.avgVote),
+          m.releaseYear = toInteger(row.releaseYear),
+          m.genres = split(row.genres,":")
+
+LOAD CSV WITH HEADERS FROM
+'https://data.neo4j.com/v4.0-intro-neo4j/directors.csv' AS row
+MATCH (movie:Movie {id:toInteger(row.movieId)})
+MATCH (person:Person {id: toInteger(row.personId)})
+MERGE (person)-[:DIRECTED]->(movie)
+ON CREATE SET person:Director          
+ ```
+ - Add indexes
+ ```
+CREATE INDEX MovieTitleIndex ON (m:Movie) FOR (m.title);
+CREATE INDEX PersonNameIndex ON (p:Person) FOR (p.name)
+ ```
+####  Using APOC and Cypher
+- Clear graph
+```
+// Delete all constraints and indexes
+CALL apoc.schema.assert({},{},true);
+// Delete all nodes and relationships
+CALL apoc.periodic.iterate(
+  'MATCH (n) RETURN n',
+  'DETACH DELETE n',
+  { batchSize:500 }
+)
+```
+- Conditional processing with *apoc.do.when*
+
+####  Using Drivers via Bolt
+- you can control:
+    - What node and relationship updates can be in a transaction.
+    - How large a transaction will be (batching).
+    - How much concurrent processing you want to implement (parallel processing).
+
+####  Using the neo4j-admin import tool
+- use when you have extremely large amounts of data to import, for example greater than 10M nodes.
+- you don’t have the flexibility to transform the data during the import from csv
+- the database to be imported into must not exist as it will be created as part of the import.
+- you create the constraints (and indexes) after the import
+
+####  Using the ETL tool
+- Install the Neo4j ETL Tool into your Neo4j Desktop project.
+- Create and start the Neo4j database into which you will import the data.
+- Use the Neo4j ETL Tool to import the data
