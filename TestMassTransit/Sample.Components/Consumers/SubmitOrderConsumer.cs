@@ -20,21 +20,24 @@ namespace Sample.Components
             _logger.LogDebug("SubmitOrderConsumer: {CustomerNumber}", context.Message.CustomerNumber);
             if(context.Message.CustomerNumber.Contains("TEST"))
             {
-                await context.RespondAsync<OrderSubmissionRejected>(new
+                if (context.RequestId != null)
+                    await context.RespondAsync<OrderSubmissionRejected>(new
+                    {
+                        InVar.Timestamp,
+                        context.Message.OrderId,
+                        context.Message.CustomerNumber,
+                        Reason = $"Test customer cannont submit orders: {context.Message.CustomerNumber}"
+                    });
+                return;
+            }
+
+            if (context.RequestId != null)
+                await context.RespondAsync<OrderSubmissionAccepted>(new
                 {
                     InVar.Timestamp,
                     context.Message.OrderId,
-                    context.Message.CustomerNumber,
-                    Reason = $"Test customer cannont submit orders: {context.Message.CustomerNumber}"
+                    context.Message.CustomerNumber
                 });
-                return;
-            }
-            await context.RespondAsync<OrderSubmissionAccepted>(new 
-            { 
-                InVar.Timestamp,
-                context.Message.OrderId,
-                context.Message.CustomerNumber
-            });
         }
 
     }

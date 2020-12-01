@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -29,7 +30,7 @@ namespace Sample.Api
                 // cfg.AddConsumer<SubmitOrderConsumer>(); 
                 // cfg.AddMediator();
                 cfg.AddBus(providerContext => Bus.Factory.CreateUsingRabbitMq());
-                cfg.AddRequestClient<SubmitOrder>();
+                cfg.AddRequestClient<SubmitOrder>(new Uri($"exchange:{KebabCaseEndpointNameFormatter.Instance.Consumer<SubmitOrderConsumer>()}"));
             });
             services.AddMassTransitHostedService();
 
