@@ -31,6 +31,7 @@ namespace Sample.Api
                 // cfg.AddMediator();
                 cfg.AddBus(providerContext => Bus.Factory.CreateUsingRabbitMq());
                 cfg.AddRequestClient<SubmitOrder>(new Uri($"exchange:{KebabCaseEndpointNameFormatter.Instance.Consumer<SubmitOrderConsumer>()}"));
+                cfg.AddRequestClient<CheckOrder>();
             });
             services.AddMassTransitHostedService();
 

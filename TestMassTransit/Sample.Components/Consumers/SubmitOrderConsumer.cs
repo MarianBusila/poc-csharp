@@ -26,7 +26,7 @@ namespace Sample.Components
                         InVar.Timestamp,
                         context.Message.OrderId,
                         context.Message.CustomerNumber,
-                        Reason = $"Test customer cannont submit orders: {context.Message.CustomerNumber}"
+                        Reason = $"Test customer cannot submit orders: {context.Message.CustomerNumber}"
                     });
                 return;
             }

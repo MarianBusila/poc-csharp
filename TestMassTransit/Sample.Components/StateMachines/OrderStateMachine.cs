@@ -1,5 +1,6 @@
 ﻿using System;
 using Automatonymous;
+using MassTransit;
 using MassTransit.RedisIntegration;
 using Sample.Contracts;
 
@@ -11,6 +12,17 @@ namespace Sample.Components.StateMachines
         public OrderStateMachine()
         {
             Event(() => OrderSubmitted, x => x.CorrelateById(m => m.Message.OrderId));
+            Event(() => OrderStatusRequested, x =>
+            {
+                x.CorrelateById(m => m.Message.OrderId);
+                x.OnMissingInstance(m => m.ExecuteAsync(async context => 
+                { 
+                    if(context.RequestId.HasValue)
+                    {
+                        await context.RespondAsync<OrderNotFound>(new { context.Message.OrderId });
+                    }
+                }));
+            });
 
             InstanceState(x => x.CurrentState);
 
@@ -30,15 +42,23 @@ namespace Sample.Components.StateMachines
             During(Submitted, 
                 Ignore(OrderSubmitted));
 
-            // if order is in any state, when OrderSubmitted event is received, we just copy some data in the state, but we do not change the state
+            // if order is in any state (except initial and final), when OrderSubmitted event is received, we just copy some data in the state, but we do not change the state
             DuringAny(
                 When(OrderSubmitted)
                     .Then(context =>
                     {
-                        context.Instance.SubmitDate = context.Data.Timestamp;
-                        context.Instance.CustomerNumber = context.Data.CustomerNumber;
+                        context.Instance.SubmitDate ??= context.Data.Timestamp;
+                        context.Instance.CustomerNumber ??= context.Data.CustomerNumber;
                     })
                 );
+
+            DuringAny(
+                When(OrderStatusRequested)
+                .RespondAsync(x => x.Init<OrderStatus>(new
+                {
+                    OrderId = x.Instance.CorrelationId,
+                    State = x.Instance.CurrentState
+                })));
         }
 
         public State Submitted { get; private set; }
@@ -46,6 +66,7 @@ namespace Sample.Components.StateMachines
 
 
         public Event<OrderSubmitted> OrderSubmitted { get; private set; }
+        public Event<CheckOrder> OrderStatusRequested { get; private set; }
 
     }
 
@@ -61,8 +82,8 @@ namespace Sample.Components.StateMachines
 
         public string CustomerNumber { get; set; }
 
-        public DateTime SubmitDate { get; set; }
-        public DateTime Updated { get; set; }
+        public DateTime? SubmitDate { get; set; }
+        public DateTime? Updated { get; set; }
         
 
     }
