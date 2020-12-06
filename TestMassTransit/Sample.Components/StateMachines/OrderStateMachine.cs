@@ -1,7 +1,6 @@
 ﻿using System;
 using Automatonymous;
 using MassTransit;
-using MassTransit.RedisIntegration;
 using Sample.Contracts;
 
 namespace Sample.Components.StateMachines
@@ -67,24 +66,6 @@ namespace Sample.Components.StateMachines
 
         public Event<OrderSubmitted> OrderSubmitted { get; private set; }
         public Event<CheckOrder> OrderStatusRequested { get; private set; }
-
-    }
-
-
-
-    public class OrderState : SagaStateMachineInstance, IVersionedSaga
-    {
-
-        public Guid CorrelationId { get; set; }
-        public int Version { get; set; }
-
-        public string CurrentState { get; set; }
-
-        public string CustomerNumber { get; set; }
-
-        public DateTime? SubmitDate { get; set; }
-        public DateTime? Updated { get; set; }
-        
 
     }
 }
