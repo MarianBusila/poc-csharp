@@ -58,9 +58,13 @@ namespace Codility
             result = ConsecSum.Solution2(36);
             Console.WriteLine("ConsecSum 36: " + result);
             */
-
+            /*
             int[,] result = DiagonalMatrixSum.Solution(new int[,] { {1, 2, 3}, {1, 2, 1}, {2, 3, 4} });                        
             Console.WriteLine("DiagonalMatrixSum:" + DiagonalMatrixSum.MatrixToString(result));
+            */
+
+            int value = FrogJump.Solution(10, 85, 30);
+            Console.WriteLine("FrogJump: " + value);
         }
 
 
