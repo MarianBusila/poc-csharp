@@ -73,8 +73,13 @@ namespace Codility
             Console.WriteLine("TapeEquilibrum: " + value);
             */
 
+            /*
             int value = FrogRiverOne.Solution(5, new []{1, 3, 1, 4, 2, 3, 5, 4});
             Console.WriteLine("FrogRiverOne: " + value);
+            */
+
+            int value = PermCheck.Solution(new[] { 4, 1, 3, 2 });
+            Console.WriteLine("PermCheck: " + value);
         }
 
 
