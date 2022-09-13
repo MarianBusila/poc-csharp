@@ -63,8 +63,14 @@ namespace Codility
             Console.WriteLine("DiagonalMatrixSum:" + DiagonalMatrixSum.MatrixToString(result));
             */
 
+            /*
             int value = FrogJump.Solution(10, 85, 30);
             Console.WriteLine("FrogJump: " + value);
+            */
+
+            int value = TapeEquilibrum.Solution(new int[] {3, 1, 2, 4, 3});
+            Console.WriteLine("TapeEquilibrum: " + value);
+
         }
 
 

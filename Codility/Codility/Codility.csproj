@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TapeEquilibrum.cs" />
     <Compile Include="FrogJump.cs" />
     <Compile Include="BinaryGap.cs" />
     <Compile Include="ConsecSum.cs" />
