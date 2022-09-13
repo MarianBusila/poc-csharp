@@ -128,7 +128,16 @@ namespace UnitTest
             Assert.AreEqual(Distinct.Solution(new[] { 1, 1, 3, 2, 3, 5 }), 4);
             Assert.AreEqual(Distinct.Solution(new[] { -100, -1000, 0, 2, 3, 5 }), 6);
             Assert.AreEqual(Distinct.Solution(new int[] { } ), 0);
-
         }
+
+        [TestMethod]
+        public void TestBrackets()
+        {
+            Assert.AreEqual(1, Brackets.Solution( "{[()()]}"));
+            Assert.AreEqual(0, Brackets.Solution("([)()]"));
+            Assert.AreEqual(1, Brackets.Solution(""));
+            Assert.AreEqual(1, Brackets.Solution("{[()()]}[()()]"));
+        }
+
     }
 }

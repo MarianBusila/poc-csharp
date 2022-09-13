@@ -88,8 +88,13 @@ namespace Codility
             Console.WriteLine("PermCheck: " + String.Join(", ", result));
             */
 
+            /*
             int value = Distinct.Solution(new[] { 2, 1, 1, 2, 3, 1 });
             Console.WriteLine("Distinct: " + value);
+            */
+
+            int value = Brackets.Solution("{[()()]}");
+            Console.WriteLine("Brackets: " + value);
         }
 
 
