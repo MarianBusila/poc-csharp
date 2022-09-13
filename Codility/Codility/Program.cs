@@ -68,9 +68,13 @@ namespace Codility
             Console.WriteLine("FrogJump: " + value);
             */
 
+            /*
             int value = TapeEquilibrum.Solution(new int[] {3, 1, 2, 4, 3});
             Console.WriteLine("TapeEquilibrum: " + value);
+            */
 
+            int value = FrogRiverOne.Solution(5, new []{1, 3, 1, 4, 2, 3, 5, 4});
+            Console.WriteLine("FrogRiverOne: " + value);
         }
 
 
