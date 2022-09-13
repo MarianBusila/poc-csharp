@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PassingCars.cs" />
     <Compile Include="MaxCounters.cs" />
     <Compile Include="PermCheck.cs" />
     <Compile Include="FrogRiverOne.cs" />

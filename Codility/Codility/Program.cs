@@ -83,8 +83,13 @@ namespace Codility
             Console.WriteLine("PermCheck: " + value);
             */
 
+            /*
             int[] result = MaxCounters.Solution(5, new[] { 3, 4, 4, 6, 1, 4, 4, 6, 7 });
             Console.WriteLine("PermCheck: " + String.Join(", ", result));
+            */
+
+            int value = PassingCars.Solution(new[] { 0, 1, 0, 1, 1 });
+            Console.WriteLine("PermCheck: " + value);
         }
 
 

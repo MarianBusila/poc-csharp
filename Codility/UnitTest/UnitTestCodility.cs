@@ -111,5 +111,14 @@ namespace UnitTest
             resultStr = DiagonalMatrixSum.MatrixToString(DiagonalMatrixSum.Solution(new int[,] { { 1, 1, 4, 2 }, { 5, 1, 3, 6 }, { 2, 1, 3, 2 } }));
             Assert.AreEqual(resultStr, "{1,2,6,8},{6,8,15,23},{8,11,21,31}");
         }
+
+        [TestMethod]
+        public void TestPassingCars()
+        {
+            Assert.AreEqual(PassingCars.Solution(new[] { 0, 1, 0, 1, 1 }), 5);
+            Assert.AreEqual(PassingCars.Solution(new[] { 0, 0, 0, 0, 1 }), 4);
+            Assert.AreEqual(PassingCars.Solution(new[] { 1, 0, 0, 0, 0 }), 0);
+            Assert.AreEqual(PassingCars.Solution(new[] { 1, 0, 0, 1, 0, 1, 1 }), 8);
+        }
     }
 }
