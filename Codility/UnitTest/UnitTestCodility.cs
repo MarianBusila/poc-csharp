@@ -120,5 +120,15 @@ namespace UnitTest
             Assert.AreEqual(PassingCars.Solution(new[] { 1, 0, 0, 0, 0 }), 0);
             Assert.AreEqual(PassingCars.Solution(new[] { 1, 0, 0, 1, 0, 1, 1 }), 8);
         }
+
+        [TestMethod]
+        public void TestDistinct()
+        {
+            Assert.AreEqual(Distinct.Solution(new[] { 2, 1, 1, 2, 3, 1 }), 3);
+            Assert.AreEqual(Distinct.Solution(new[] { 1, 1, 3, 2, 3, 5 }), 4);
+            Assert.AreEqual(Distinct.Solution(new[] { -100, -1000, 0, 2, 3, 5 }), 6);
+            Assert.AreEqual(Distinct.Solution(new int[] { } ), 0);
+
+        }
     }
 }

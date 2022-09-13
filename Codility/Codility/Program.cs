@@ -88,8 +88,8 @@ namespace Codility
             Console.WriteLine("PermCheck: " + String.Join(", ", result));
             */
 
-            int value = PassingCars.Solution(new[] { 0, 1, 0, 1, 1 });
-            Console.WriteLine("PermCheck: " + value);
+            int value = Distinct.Solution(new[] { 2, 1, 1, 2, 3, 1 });
+            Console.WriteLine("Distinct: " + value);
         }
 
 
