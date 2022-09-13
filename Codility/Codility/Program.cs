@@ -78,8 +78,13 @@ namespace Codility
             Console.WriteLine("FrogRiverOne: " + value);
             */
 
+            /*
             int value = PermCheck.Solution(new[] { 4, 1, 3, 2 });
             Console.WriteLine("PermCheck: " + value);
+            */
+
+            int[] result = MaxCounters.Solution(5, new[] { 3, 4, 4, 6, 1, 4, 4, 6, 7 });
+            Console.WriteLine("PermCheck: " + String.Join(", ", result));
         }
 
 
