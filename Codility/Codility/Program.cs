@@ -93,8 +93,21 @@ namespace Codility
             Console.WriteLine("Distinct: " + value);
             */
 
+            /*
             int value = Brackets.Solution("{[()()]}");
             Console.WriteLine("Brackets: " + value);
+            */
+
+            var tree = new Tree
+            {
+                x = 5,
+                l = new Tree { x = 3, l = new Tree { x = 20}, r = new Tree { x = 21, r = new Tree {x=5} }},
+                r = new Tree { x = 10, l = new Tree {x = 1}}
+
+            };
+            int value = TreeHeight.Solution(tree);
+            Console.WriteLine("TreeHeight: " + value);
+
         }
 
 

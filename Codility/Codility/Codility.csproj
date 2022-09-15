@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Distinct.cs" />
     <Compile Include="Brackets.cs" />
+    <Compile Include="TreeHeight.cs" />
     <Compile Include="PassingCars.cs" />
     <Compile Include="MaxCounters.cs" />
     <Compile Include="PermCheck.cs" />
