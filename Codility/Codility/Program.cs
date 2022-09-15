@@ -98,6 +98,7 @@ namespace Codility
             Console.WriteLine("Brackets: " + value);
             */
 
+            /*
             var tree = new Tree
             {
                 x = 5,
@@ -107,7 +108,11 @@ namespace Codility
             };
             int value = TreeHeight.Solution(tree);
             Console.WriteLine("TreeHeight: " + value);
+            */
 
+            int value = ArrayInversionCount.Solution(new[] { -1, 6, 3, 4, 7, 4 });
+            //int value = ArrayInversionCount.Solution(new int[] {});
+            Console.WriteLine("ArrayInversionCount: " + value);
         }
 
 
