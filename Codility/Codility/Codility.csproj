@@ -46,6 +46,8 @@
     <Compile Include="Distinct.cs" />
     <Compile Include="Brackets.cs" />
     <Compile Include="ArrayInversionCount.cs" />
+    <Compile Include="Graph.cs" />
+    <Compile Include="GraphAlgorithms.cs" />
     <Compile Include="TreeHeight.cs" />
     <Compile Include="PassingCars.cs" />
     <Compile Include="MaxCounters.cs" />
