@@ -5,6 +5,7 @@ namespace Codility
 {
     public class GraphAlgorithms
     {
+
         public HashSet<T> BFS<T>(Graph<T> graph, T start)
         {
             var visited = new HashSet<T>();
@@ -14,11 +15,11 @@ namespace Codility
 
             var queue = new Queue<T>();
             queue.Enqueue(start);
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 var vertex = queue.Dequeue();
 
-                if(visited.Contains(vertex))
+                if (visited.Contains(vertex))
                     continue;
 
                 visited.Add(vertex);
@@ -31,6 +32,7 @@ namespace Codility
                         queue.Enqueue(neighbourgh);
                     }
                 }
+
                 Console.WriteLine("Queue: " + string.Join(", ", queue));
             }
 
@@ -45,7 +47,7 @@ namespace Codility
             var queue = new Queue<T>();
             queue.Enqueue(start);
 
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 var vertex = queue.Dequeue();
                 foreach (T neighbourgh in graph.AdjacencyList[vertex])
@@ -60,8 +62,8 @@ namespace Codility
                 }
             }
 
-            Func<T, IEnumerable<T>> shortestPath = v => 
-            { 
+            Func<T, IEnumerable<T>> shortestPath = v =>
+            {
                 var path = new List<T>();
 
                 var current = v;
@@ -79,5 +81,32 @@ namespace Codility
 
             return shortestPath;
         }
+
+        public HashSet<T> DFS<T>(Graph<T> graph, T start)
+        {
+            var visited = new HashSet<T>();
+
+            var stack = new Stack<T>();
+            stack.Push(start);
+
+            while (stack.Count > 0)
+            {
+                var vertex = stack.Pop();
+                if (visited.Contains(vertex))
+                    continue;
+
+                visited.Add(vertex);
+                foreach (T neighbourgh in graph.AdjacencyList[vertex])
+                {
+                    if (!visited.Contains(neighbourgh))
+                        stack.Push(neighbourgh);
+                }
+
+                Console.WriteLine("Stack: " + string.Join(",", stack));
+            }
+
+            return visited;
+        }
+
     }
 }

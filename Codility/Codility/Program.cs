@@ -129,6 +129,7 @@ namespace Codility
             var algorithms = new GraphAlgorithms();
 
             // BFS
+            /*
             Console.WriteLine("BFS: " + string.Join(",", algorithms.BFS<int>(graph, 1)));
 
             var shortestPath = algorithms.ShortestPathFunction(graph, 1);
@@ -136,6 +137,10 @@ namespace Codility
             {
                 Console.WriteLine($"shortestPath for {vertex}: {string.Join(",", shortestPath(vertex))}");
             }
+            */
+
+            // DFS
+            Console.WriteLine("DFS: " + string.Join(",", algorithms.DFS<int>(graph, 1)));
         }
 
 
