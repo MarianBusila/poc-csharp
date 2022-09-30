@@ -20,7 +20,7 @@
 * neo4j - a sample console app using [Neo4j](https://neo4j.com/) graph database 
 * EntityFrameworkCoreCosmosDb - a console app using EFCore CosmosDB provider
 * TestMassTransit - [MassTransit](https://masstransit-project.com/) - a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.
-* GrpcGreeter - Implementation of a grpc server and client based on [Tutorial: Create a gRPC client and server in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio)
+* GrpcGreeter - Implementation of a grpc server and client based on [Tutorial: Create a gRPC client and server in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio). See also [Grpc Basic Tutorial](https://grpc.io/docs/languages/csharp/basics/)
 
 ## Nuget packages
 
