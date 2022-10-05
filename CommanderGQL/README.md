@@ -34,3 +34,20 @@ dotnet tool install --global dotnet-ef --version 5.0.17
 ```
 dotnet ef database update
 ```
+
+- run application
+```
+dotnet run
+```
+
+- access endpoint: http://localhost:5000\graphql. This will open the _Banana Cake Pop_ UI. Alternatively, Postman or Insomnia can be used
+
+- run query
+```
+query {
+  platform {
+    id
+     name
+  }
+}
+```
