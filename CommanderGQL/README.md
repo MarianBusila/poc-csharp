@@ -40,14 +40,21 @@ dotnet ef database update
 dotnet run
 ```
 
-- access endpoint: http://localhost:5000\graphql. This will open the _Banana Cake Pop_ UI. Alternatively, Postman or Insomnia can be used
+- access endpoint: http://localhost:5000/graphql. This will open the _Banana Cake Pop_ UI. Alternatively, Postman or Insomnia can be used
 
 - run query
 ```
 query {
-  platform {
-    id
-     name
-  }
+	platform {
+		id
+		name
+		commands {
+			id
+			howTo
+			commandLine
+		}
+	}
 }
 ```
+
+- access endpoint: http://localhost:5000/graphql-voyager. This will display the schema.
