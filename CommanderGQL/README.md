@@ -24,3 +24,13 @@ A GraphQL API with .NET 5 and Hot Chocolate based on this [ Youtube tutorial](ht
 ```
 docker-compose up -d
 ```
+
+- install _dotnet ef_
+```
+dotnet tool install --global dotnet-ef --version 5.0.17
+```
+
+- apply migrations
+```
+dotnet ef database update
+```
