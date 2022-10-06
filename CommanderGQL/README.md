@@ -42,7 +42,7 @@ dotnet run
 
 - access endpoint: http://localhost:5000/graphql. This will open the _Banana Cake Pop_ UI. Alternatively, Postman or Insomnia can be used
 
-- run query 1
+- run query to get platforms
 ```
 query {
 	platform {
@@ -57,7 +57,7 @@ query {
 }
 ```
 
-- run query 2
+- run query to get commands
 ```
 query {
 	command {
@@ -70,5 +70,30 @@ query {
 	}
 }
 ```
+
+- run query with filter
+```
+query {
+	command(where: {platformId: {eq: 1}}) {
+		id
+		howTo
+		commandLine
+		platform {
+			name
+		}
+	}
+}
+```
+
+- run query with sorting
+```
+query {
+	platform(order: {name: DESC}) {
+		name
+	}
+}
+
+```
+
 
 - access endpoint: http://localhost:5000/graphql-voyager. This will display the schema.
