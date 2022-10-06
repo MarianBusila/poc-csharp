@@ -1,5 +1,5 @@
 ## Overview
-A GraphQL API with .NET 5 and Hot Chocolate based on this [ Youtube tutorial](https://www.youtube.com/watch?v=HuN94qNwQmM)
+A GraphQL API with .NET 5 and Hot Chocolate based on this [Youtube tutorial](https://www.youtube.com/watch?v=HuN94qNwQmM)
 
 ## Graph QL core concepts
 ![](images/CoreConcepts.png)
@@ -42,7 +42,7 @@ dotnet run
 
 - access endpoint: http://localhost:5000/graphql. This will open the _Banana Cake Pop_ UI. Alternatively, Postman or Insomnia can be used
 
-- run query
+- run query 1
 ```
 query {
 	platform {
@@ -52,6 +52,20 @@ query {
 			id
 			howTo
 			commandLine
+		}
+	}
+}
+```
+
+- run query 2
+```
+query {
+	command {
+		id
+		howTo
+		commandLine
+		platform {
+			name
 		}
 	}
 }

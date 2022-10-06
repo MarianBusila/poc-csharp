@@ -1,5 +1,10 @@
 ## Proof of concepts for various .NET technologies / libraries.
 
+* CommanderGQL - A GraphQL API with .NET 5 and Hot Chocolate based on this [Youtube tutorial](https://www.youtube.com/watch?v=HuN94qNwQmM)
+* GrpcGreeter - Implementation of a grpc server and client based on [Tutorial: Create a gRPC client and server in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio). See also [Grpc Basic Tutorial](https://grpc.io/docs/languages/csharp/basics/)
+* TestMassTransit - [MassTransit](https://masstransit-project.com/) - a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.
+* EntityFrameworkCoreCosmosDb - a console app using EFCore CosmosDB provider
+* neo4j - a sample console app using [Neo4j](https://neo4j.com/) graph database 
 * Codility - various problems proposed on the [Codility](https://www.codility.com/) platform
 * JaegerHelloWorld - a sample client for [Jaeger Distributed Tracing System](https://github.com/jaegertracing)
 * LinqExamples - a suite of examples for LINQ operators
@@ -17,11 +22,6 @@
 * TestRabbitMQ - [RabbitMQ](https://github.com/rabbitmq/rabbitmq-dotnet-client) client for RabbitMQ message broker
 * TestSerilog - [Serilog](https://github.com/serilog/serilog) - Simple .NET logging with fully-structured events
 * aspnetcore_docker - sample ASP .NetCore service with Dockerfile
-* neo4j - a sample console app using [Neo4j](https://neo4j.com/) graph database 
-* EntityFrameworkCoreCosmosDb - a console app using EFCore CosmosDB provider
-* TestMassTransit - [MassTransit](https://masstransit-project.com/) - a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.
-* GrpcGreeter - Implementation of a grpc server and client based on [Tutorial: Create a gRPC client and server in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio). See also [Grpc Basic Tutorial](https://grpc.io/docs/languages/csharp/basics/)
-
 ## Nuget packages
 
 | Name |  Description |
