@@ -95,5 +95,41 @@ query {
 
 ```
 
+- add a platform using a mutation
+```
+mutation {
+	addPlatform(input: {
+		name: "Ubuntu"
+	})
+	{
+		platform {
+		id 
+		name
+	}
+	}
+}
+```
+
+- add a command using a mutation
+```
+mutation {
+	addCommand(input: {
+		howTo: "List files in a folder"
+		commandLine: "ls"
+		platformId: 5
+	})
+	{
+		command {
+			id 
+			howTo
+			commandLine
+			platform {
+				name
+			}		
+		}
+	}
+}
+```
+
 
 - access endpoint: http://localhost:5000/graphql-voyager. This will display the schema.
