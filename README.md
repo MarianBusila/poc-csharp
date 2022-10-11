@@ -1,5 +1,6 @@
 ## Proof of concepts for various .NET technologies / libraries.
 
+* Microservices - Implemenation of 2 microservices using HTTP and GRPC APIs, asyncronous messaging with RabbitMQ, deployed on Kubernetes. Based on this [.NET Microservices – Full Course](https://www.youtube.com/watch?v=DgVjEo3OGBI)
 * CommanderGQL - A GraphQL API with .NET 5 and Hot Chocolate based on this [Youtube tutorial](https://www.youtube.com/watch?v=HuN94qNwQmM)
 * GrpcGreeter - Implementation of a grpc server and client based on [Tutorial: Create a gRPC client and server in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio). See also [Grpc Basic Tutorial](https://grpc.io/docs/languages/csharp/basics/)
 * TestMassTransit - [MassTransit](https://masstransit-project.com/) - a free, open-source distributed application framework for .NET. MassTransit makes it easy to create applications and services that leverage message-based, loosely-coupled asynchronous communication for higher availability, reliability, and scalability.
