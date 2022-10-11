@@ -40,6 +40,24 @@ docker run -p 8080:80 -d YOUR_DOCKERHUB_USER/platformservice
 docker push YOUR_DOCKERHUB_USER/platformservice
 ```
 
+- build commands service image
+
+```
+docker build -t YOUR_DOCKERHUB_USER/commandsservice .
+```
+
+- run commands service
+
+```
+docker run -p 8081:80 -d YOUR_DOCKERHUB_USER/commandsservice
+```
+
+- push image to Docker Hub
+
+```
+docker push YOUR_DOCKERHUB_USER/commandsservice
+```
+
 ### Kubernetes
 
 - install and start minikube
@@ -48,4 +66,10 @@ docker push YOUR_DOCKERHUB_USER/platformservice
 
 ```
 kubectl apply -f platforms-depl.yaml
+```
+
+- deploy commands service
+
+```
+kubectl apply -f commands-depl.yaml
 ```
