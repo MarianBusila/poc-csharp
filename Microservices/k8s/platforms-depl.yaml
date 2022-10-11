@@ -13,5 +13,19 @@ spec:
         app: platformservice
     spec:
       containers:
-        - name: platofmrservice
+        - name: platformservice
           image: marianbusila/platformservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: platformservice
+  ports:
+  - name: platformservice
+    protocol: TCP
+    port: 80
+    targetPort: 80
