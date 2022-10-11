@@ -14,6 +14,7 @@ Implemenation of 2 microservices using HTTP and GRPC APIs, asyncronous messaging
 ![](images/Architecture.png)
 ![](images/PlatformService.png)
 ![](images/CommandService.png)
+![](images/Kubernetes.png)
 
 ## Setup
 
@@ -24,11 +25,17 @@ The images will be pushed to Docker Hub.
 - build platform service image
 
 ```
-docker build -t <YOUR_DOCKERHUB_USER>/platformservice .
+docker build -t YOUR_DOCKERHUB_USER/platformservice .
 ```
 
 - run platform service
 
 ```
-docker run -p 8080:80 -d marianbusila/platformservice
+docker run -p 8080:80 -d YOUR_DOCKERHUB_USER/platformservice
+```
+
+- push image to Docker Hub
+
+```
+docker push YOUR_DOCKERHUB_USER/platformservice
 ```
