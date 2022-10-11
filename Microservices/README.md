@@ -39,3 +39,13 @@ docker run -p 8080:80 -d YOUR_DOCKERHUB_USER/platformservice
 ```
 docker push YOUR_DOCKERHUB_USER/platformservice
 ```
+
+### Kubernetes
+
+- install and start minikube
+
+- deploy platform service
+
+```
+kubectl apply -f platforms-depl.yaml
+```
