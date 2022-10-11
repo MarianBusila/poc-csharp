@@ -60,7 +60,7 @@ docker push YOUR_DOCKERHUB_USER/commandsservice
 
 ### Kubernetes
 
-- install and start minikube
+- check that the option "Enable Kubernetes" is checked in DockerDesktop app
 
 - deploy platform service
 
