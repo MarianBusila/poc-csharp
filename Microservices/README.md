@@ -73,3 +73,17 @@ kubectl apply -f platforms-depl.yaml
 ```
 kubectl apply -f commands-depl.yaml
 ```
+
+- install ingress-nginx
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/cloud/deploy.yaml
+```
+
+- modify _hosts_ file to add an entry fro acme.com
+
+- deploy the ingress for our services
+
+```
+kubectl apply -f ingress-srv.yaml
+```
