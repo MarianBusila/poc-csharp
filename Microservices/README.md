@@ -87,3 +87,23 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```
 kubectl apply -f ingress-srv.yaml
 ```
+
+- deploy the pvc claim for MSSQL
+
+```
+kubectl apply -f local-pvc.yaml
+```
+
+- create secret for MSSQL password
+
+```
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
+```
+
+- deploy MSSQL server with a load balancer to access it from local machine
+
+```
+kubectl apply -f mssql-platform-depl.yaml
+```
+
+- perform a GET on http://acme.com/api/platforms
