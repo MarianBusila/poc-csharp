@@ -9,12 +9,27 @@ Implemenation of 2 microservices using HTTP and GRPC APIs, asyncronous messaging
 - Building Synchronous messaging between services (HTTP & gRPC)
 - Building Asynchronous messaging between services using an Event Bus (RabbitMQ)
 
-## Architecture
+## Solution Architecture
 
 ![](images/Architecture.png)
 ![](images/PlatformService.png)
 ![](images/CommandService.png)
 ![](images/Kubernetes.png)
+
+## RabbitMQ Overview
+
+There are 4 types of exchanges:
+
+- Direct
+- Fanout
+- Topic
+- Header
+
+In our architecture, we will use _Fanout_.
+
+![](images/RabbitMQ_Direct.png)
+![](images/RabbitMQ_Fanout.png)
+![](images/RabbitMQ_Topic.png)
 
 ## Setup
 
