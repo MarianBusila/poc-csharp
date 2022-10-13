@@ -17,8 +17,8 @@ namespace PlatformService.Data
         {
             modelBuilder.Entity<Platform>()
                 .HasMany(p => p.Commands)
-                .WithOne(c => c.Platform!)
-                .HasForeignKey(c => c.Platform!.Id);
+                .WithOne(c => c.Platform)
+                .HasForeignKey(c => c.PlatformId);
 
             modelBuilder.Entity<Command>()
                 .HasOne(c => c.Platform)
