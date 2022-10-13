@@ -121,4 +121,10 @@ kubectl create secret generic mssql --from-literal=SA_PASSWORD="pa55w0rd!"
 kubectl apply -f mssql-platform-depl.yaml
 ```
 
+- deploy RabbitMQ with a load balancer to access it from local machine
+
+```
+kubectl apply -f rabbitmq-depl.yaml
+```
+
 - perform a GET on http://acme.com/api/platforms
