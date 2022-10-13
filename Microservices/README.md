@@ -128,3 +128,26 @@ kubectl apply -f rabbitmq-depl.yaml
 ```
 
 - perform a GET on http://acme.com/api/platforms
+
+- perform a POST with body on http://acme.com/api/platforms to create a platform
+
+```
+{
+	"name": "Docker",
+	"publisher": "Docker",
+	"cost": "Free"
+}
+```
+
+- perform a POST with body on http://acme.com/api/c/platforms/4/commands. We assume that 4 is the platform id created above.
+
+```
+{
+	"howTo": "Push a docker container to hub",
+	"commandLine": "docker push"
+}
+```
+
+- perform a GET on http://acme.com/api/c/platforms/4/commands
+
+- perform a GET on http://acme.com/api/c/platforms/4/commands/1
