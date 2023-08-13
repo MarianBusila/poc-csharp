@@ -1,24 +1,24 @@
 ﻿using Google.Cloud.PubSub.V1;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Publisher;
 
 string projectId = "unity-solutions-pwest-test";
 string topicId = "test-marian";
 
-// Create topic
-PublisherServiceApiClient publisherServiceApiClient = await PublisherServiceApiClient.CreateAsync();
-TopicName topicName = new TopicName(projectId, topicId);
+var host = Host.CreateDefaultBuilder(args)
+    .ConfigureServices(services =>
+    {
+        services.AddPublisherClient(TopicName.FromProjectTopic(projectId, topicId));
+        services.AddPublisherServiceApiClient();
+        
+        services.AddTransient<IPublisher, PubSubPublisher>();
+    })
+    .Build();
 
-try {
-    Console.WriteLine("Creating topic ...");
-    publisherServiceApiClient.CreateTopic(topicName);
-    Console.WriteLine("Topic created");
-}
-catch (Grpc.Core.RpcException)
-{
-    Console.WriteLine("Topic already exists");
-}
+var publisher = host.Services.GetRequiredService<IPublisher>();
+await publisher.CreateTopic(projectId, topicId);
+await publisher.PublishMessage();
 
-// Publish a message to the topic
-PublisherClient publisher = await PublisherClient.CreateAsync(topicName);
-string messageId = await publisher.PublishAsync("Hello at " + DateTime.Now);
-Console.WriteLine("Published MessageId: " + messageId);
-await publisher.ShutdownAsync(TimeSpan.FromSeconds(5));
+
+

@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="Google.Cloud.PubSub.V1" Version="3.6.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0-preview.6.23329.7" />
     </ItemGroup>
 
 </Project>
